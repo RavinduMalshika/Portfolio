@@ -1,14 +1,50 @@
+import { useEffect, useState } from "react";
+
 const Home = () => {
+    const [selectedTheme, setSelectedTheme] = useState("auto")
+
+    useEffect(() => {
+        let themeSelections = document.getElementsByClassName("themes")[0].childNodes;
+        console.log(themeSelections);
+        themeSelections.forEach(themeSelection => {
+            themeSelection.addEventListener("click", function () {
+                setSelectedTheme(themeSelection.id)
+            })
+        })
+    }, [])
+
+    useEffect(() => {
+        console.log("Theme Loaded")
+        themeChanged()
+    }, [selectedTheme])
+
+    const themeChanged = () => {
+        let theme = selectedTheme
+        console.log("called")
+        switch (theme) {
+            case "light": {
+                document.documentElement.setAttribute("data-bs-theme", theme);
+                break;
+            }
+            case "dark":
+                document.documentElement.setAttribute("data-bs-theme", theme);
+                break;
+            case "auto":
+                document.documentElement.setAttribute("data-bs-theme", (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+                break;
+
+        }
+    }
 
     return (
         <div className="container-fluid">
-            <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary" id="navBar">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+            <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary" id="navBar">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="#">Navbar</a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="#home">Home</a>
@@ -25,6 +61,25 @@ const Home = () => {
                             <li class="nav-item">
                                 <a class="nav-link">Resume</a>
                             </li>
+                            <div class="vr"></div>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {selectedTheme == "light" && <i class="bi bi-brightness-high"></i>}
+                                    {selectedTheme == "dark" && <i class="bi bi-moon-fill"></i>}
+                                    {selectedTheme == "auto" && <i class="bi bi-circle-half"></i>}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end themes">
+                                    <li id="light"><a class="dropdown-item theme-selection" onClick={themeChanged("light")}>
+                                        <i class="bi bi-brightness-high"></i> Light
+                                    </a></li>
+                                    <li id="dark"><a class="dropdown-item theme-selection" onClick={themeChanged("dark")}>
+                                        <i class="bi bi-moon-fill"></i> Dark
+                                    </a></li>
+                                    <li id="auto"><a class="dropdown-item theme-selection" onClick={themeChanged("auto")}>
+                                        <i class="bi bi-circle-half"></i> Auto
+                                    </a></li>
+                                </ul>
+                            </li>
                         </ul>
 
                     </div>
@@ -37,18 +92,18 @@ const Home = () => {
                         <ul className="btn-group-vertical p-0 m-0">
                             <li className="list-group-item p-0">
                                 <a>
-                                    <i className="bi bi-github btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button"/>
+                                    <i className="bi bi-github btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button" />
                                 </a>
                             </li>
 
                             <li className="list-group-item p-0">
                                 <a>
-                                    <i className="bi bi-linkedin btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button"/>
+                                    <i className="bi bi-linkedin btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button" />
                                 </a>
                             </li>
                             <li className="list-group-item p-0">
                                 <a>
-                                    <i className="bi bi-twitter-x btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button"/>
+                                    <i className="bi bi-twitter-x btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button" />
                                 </a>
                             </li>
                         </ul>
