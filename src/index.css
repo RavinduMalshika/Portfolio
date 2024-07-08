@@ -16,3 +16,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "PlayWriteUSAModern";
+  src: local("PlayWriteUSAModern"),
+  url("./fonts/PlaywriteUSAModern/PlaywriteUSModern-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
