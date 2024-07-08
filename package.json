@@ -20,11 +20,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://github.com/RavinduMalshika/Portfolio.git",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -r https://github.com/RavinduMalshika/Portfolio.git"
   },
   "eslintConfig": {
     "extends": [
