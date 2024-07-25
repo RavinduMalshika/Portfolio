@@ -11,12 +11,45 @@ $font-sizes: (
   6: $h6-font-size
 );
 
+$theme-colors: (
+  "primary":    #EA57E5,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
 
 
 @import "~bootstrap/scss/bootstrap";
 
-.font-face-mmd{
+.font-face-title{
     font-family: "PlayWriteUSAModern";
+}
+
+.font-face-content-regular{
+  font-family: "UbuntuSans-Regular";
+}
+
+.font-face-content-medium{
+  font-family: "UbuntuSans-Medium";
+}
+
+.font-face-content-semibold{
+  font-family: "UbuntuSans-SemiBold";
+  text-align: center;
+}
+
+.background-home{
+  background-image: url("./assets/drawing.svg");
+  background-repeat: repeat-y;
+  background-size: auto;
+}
+
+.background-home-dark{
+  background-image: url("./assets/bg-dark.svg");
 }
 
 

@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import About from "../componenets/About";
 import Project from "../componenets/Project";
+import drawing from "../assets/drawing.svg";
+import Contact from "../componenets/Contact";
 
 const Home = () => {
     const [selectedTheme, setSelectedTheme] = useState("auto");
@@ -23,7 +25,7 @@ const Home = () => {
 
     const topSvgVariants = {
         initial: {
-            scale: 4,
+            scale: window.innerWidth >= 768 ? 4 : 8,
             x: (horizontalCenter - 31),
             y: 0,
             opacity: 0,
@@ -60,8 +62,8 @@ const Home = () => {
 
     const bottomSvgVariants = {
         initial: {
-            scale: 2,
-            x: (horizontalCenter - 60),
+            scale: window.innerWidth >= 768 ? 2 : 4,
+            x: window.innerWidth >= 768 ? (horizontalCenter - 60) : (horizontalCenter - 46),
             y: 0,
             opacity: 0,
             transformOrigin: "center"
@@ -180,7 +182,7 @@ const Home = () => {
     }
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid background-home">
             <motion.nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary" id="navBar"
                 variants={navBarVariants}
                 initial="initial"
@@ -233,56 +235,60 @@ const Home = () => {
             </motion.nav>
 
             <div data-bs-spy="scroll" data-bs-target="#navBar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" className="scrollSpy" tabIndex="0">
-                <div className="row align-items-center bg-primary min-vh-100" id="home">
-                    <motion.div className="col-auto bg-white rounded-5 m-3 p-0 align-items-center d-none d-md-block"
+                <div className="row align-items-center min-vh-100" id="home">
+                    <motion.div className="col-1 rounded-5 p-0 align-items-center d-none d-md-block"
                         variants={screenContentsVariants}
                         initial="initial"
                         animate="final">
-                        <ul className="btn-group-vertical p-0 m-0">
-                            <li className="list-group-item p-0">
-                                <a>
-                                    <i className="bi bi-github btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button" />
-                                </a>
-                            </li>
+                        <div className="d-inline-block bg-white ms-2 rounded-5">
+                            <ul className="btn-group-vertical my-1 p-0">
+                                <li className="list-group-item p-0">
+                                    <a>
+                                        <i className="bi bi-github btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button" />
+                                    </a>
+                                </li>
 
-                            <li className="list-group-item p-0">
-                                <a>
-                                    <i className="bi bi-linkedin btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button" />
-                                </a>
-                            </li>
-                            <li className="list-group-item p-0">
-                                <a>
-                                    <i className="bi bi-twitter-x btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button" />
-                                </a>
-                            </li>
-                        </ul>
+                                <li className="list-group-item p-0">
+                                    <a>
+                                        <i className="bi bi-linkedin btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button" />
+                                    </a>
+                                </li>
+                                <li className="list-group-item p-0">
+                                    <a>
+                                        <i className="bi bi-twitter-x btn btn-light rounded-5" style={{ fontSize: "2rem" }} role="button" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </motion.div>
 
-                    <div className="col-12 col-md-8">
-                        <motion.div className="row ms-1"
+                    <div className="col-12 col-md-9 col-lg-8">
+                        <motion.div className="row ps-3"
                             variants={screenContentsVariants}
                             initial="initial"
                             animate="final">
                             <p className="p-0">HEY, I'M</p>
                         </motion.div>
 
-                        <div className="row ms-1">
-                            <motion.svg className="col-auto p-0 m-auto" ref={titleRRef} height="110" width="66" xmlns="http://www.w3.org/2000/svg"
-                                variants={topSvgVariants}
-                                initial="initial"
-                                animate="final"
-                            >
-                                <motion.path
-                                    d="M 5 105 L 5 5 M 15 105 L 15 5 C 75 5 75 30 15 55 L 60 105"
-                                    style={{ fill: "none", stroke: "black", strokeLinecap: "round", strokeLinejoin: "round" }}
-                                    strokeWidth="8"
-                                    variants={topPathVariants}
+                        <div className="d-flex flex-nowrap row align-items-center ps-3">
+                            <div className="row align-items-center p-0 m-0" style={{ width: window.innerWidth >= 768 ? 66 : 33, height: window.innerWidth >= 768 ? 110 : 55 }}>
+                                <motion.svg className="col-auto p-0 m-0" ref={titleRRef} viewBox="0 0 66 110" xmlns="http://www.w3.org/2000/svg"
+                                    variants={topSvgVariants}
                                     initial="initial"
-                                    animate="final" />
+                                    animate="final"
+                                >
+                                    <motion.path
+                                        d="M 5 105 L 5 5 M 15 105 L 15 5 C 75 5 75 30 15 55 L 60 105"
+                                        style={{ fill: "none", stroke: "black", strokeLinecap: "round", strokeLinejoin: "round" }}
+                                        strokeWidth="8"
+                                        variants={topPathVariants}
+                                        initial="initial"
+                                        animate="final" />
 
-                            </motion.svg>
+                                </motion.svg>
+                            </div>
 
-                            <motion.p className="col font-face-mmd fs-1 ps-0 m-0" id="firstNameContent"
+                            <motion.p className="col font-face-title fs-1 ps-0 m-0" id="firstNameContent"
                                 variants={screenContentsVariants}
                                 initial="initial"
                                 animate="final">
@@ -290,31 +296,33 @@ const Home = () => {
                             </motion.p>
                         </div>
 
-                        <div className="row ms-1">
-                            <motion.svg className="col-auto p-0 m-auto" ref={titleMRef} height="110" width="120" xmlns="http://www.w3.org/2000/svg"
-                                variants={bottomSvgVariants}
-                                initial="initial"
-                                animate="final"
-                            >
-                                <motion.path
-                                    d="M 15 105 L 15 5"
-                                    style={{ fill: "none", stroke: "black", strokeLinecap: "round", strokeLinejoin: "round" }}
-                                    strokeWidth="8"
-                                    variants={bottomLinePathVariants}
+                        <div className="d-flex flex-nowrap row align-items-center ps-3">
+                            <div className="row align-items-center p-0 m-0" style={{ width: window.innerWidth >= 768 ? 120 : 60, height: window.innerWidth >= 768 ? 110 : 55 }}>
+                                <motion.svg className="col-auto p-0 m-0" ref={titleMRef} viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg"
+                                    variants={bottomSvgVariants}
                                     initial="initial"
                                     animate="final"
-                                />
-                                <motion.path
-                                    d="M 25 105 L 25 5 L 70 55 L 115 5 L 115 105"
-                                    style={{ fill: "none", stroke: "black", strokeLinecap: "round", strokeLinejoin: "round" }}
-                                    strokeWidth="8"
-                                    variants={bottomLetterPathVariants}
-                                    initial="initial"
-                                    animate="final"
-                                />
-                            </motion.svg>
+                                >
+                                    <motion.path
+                                        d="M 15 105 L 15 5"
+                                        style={{ fill: "none", stroke: "black", strokeLinecap: "round", strokeLinejoin: "round" }}
+                                        strokeWidth="8"
+                                        variants={bottomLinePathVariants}
+                                        initial="initial"
+                                        animate="final"
+                                    />
+                                    <motion.path
+                                        d="M 25 105 L 25 5 L 70 55 L 115 5 L 115 105"
+                                        style={{ fill: "none", stroke: "black", strokeLinecap: "round", strokeLinejoin: "round" }}
+                                        strokeWidth="8"
+                                        variants={bottomLetterPathVariants}
+                                        initial="initial"
+                                        animate="final"
+                                    />
+                                </motion.svg>
+                            </div>
 
-                            <motion.p className="col font-face-mmd fs-1 ps-0 m-0" id="lastNameContent"
+                            <motion.p className="col font-face-title fs-1 ps-0 m-0" id="lastNameContent"
                                 variants={screenContentsVariants}
                                 initial="initial"
                                 animate="final">
@@ -322,36 +330,40 @@ const Home = () => {
                             </motion.p>
                         </div>
 
-                        <motion.div className="row ms-1"
+                        <motion.div className="row ps-3"
                             variants={screenContentsVariants}
                             initial="initial"
                             animate="final">
-                            <p>I am a passionate software developer with a knack for turning complex problems into elegant solutions. Welcome to my portfolio, where you can explore my journey, projects, and the skills I’ve honed along the way.</p>
+                            <p className="p-0">I am a passionate software developer with a knack for turning complex problems into elegant solutions. Welcome to my portfolio, where you can explore my journey, projects, and the skills I’ve honed along the way.</p>
                         </motion.div>
                     </div>
 
-                    <motion.div className="col-2 d-none d-md-block"
+                    <motion.div className="col-2 col-lg-3 align-items-center d-none d-md-block"
                         variants={screenContentsVariants}
                         initial="initial"
                         animate="final">
-                        <p>Gotta put some graphics here</p>
+                        <p>Insert graphic here</p>
                     </motion.div>
                 </div>
 
-
-
-                <div className="row align-items-center bg-secondary min-vh-100" id="about">
-
-                    <About
-                        description={["I'm a beginner Full Stack Software Engineer passionate about building and managing both the front-end and back-end of websites, web applications and software. Check out some of my work in the Projects section.", "I'm open to Job opportunities where I can contribute, learn and grow. If you have a good opportunity that matches my skills and experience then don't hesitate to contact me."]}
-                        skills={["Java", "SpringBoot", "HTML", "CSS", "JavaScript", "TypeScript", "React", "Angular", "SASS", "GIT", "Github", "Responsive Design", "Terminal"]}
-                    />
-
+                <div className="row align-items-center min-vh-100" id="about">
+                    <div className="d-none d-lg-block col-1" />
+                    <div className="col-12 col-lg-10">
+                        <About
+                            description={["I'm a beginner Full Stack Software Engineer passionate about building and managing both the front-end and back-end of websites, web applications and software. Check out some of my work in the Projects section.", "I'm open to Job opportunities where I can contribute, learn and grow. If you have a good opportunity that matches my skills and experience then don't hesitate to contact me."]}
+                            skills={["Java", "SpringBoot", "HTML", "CSS", "JavaScript", "TypeScript", "React", "Angular", "SASS", "GIT", "Github", "Terminal", "Responsive Design"]}
+                        />
+                    </div>
+                    <div className="d-none d-lg-block col-1" />
                 </div>
 
-                <div className="row align-items-center bg-success min-vh-100" id="projects">
+                <div className="row align-items-center min-vh-100" id="projects">
+                    <div className="row mt-1" style={{ height: 56 }}></div>
 
-                    <h1>Projects</h1>
+                    <h1 className="font-face-content-semibold">PROJECTS</h1>
+                    <div className="row justify-content-center">
+                        <hr className="border border-primary border-3" style={{ width: 10 }} />
+                    </div>
 
                     <div className="col">
                         <Project
@@ -373,21 +385,9 @@ const Home = () => {
                         />
                     </div>
                 </div>
-                <div className="row align-items-center bg-warning min-vh-100" id="contact">
-                    <form
-                        action="https://formspree.io/f/mnnaqvng"
-                        method="POST"
-                    >
-                        <label>
-                            Your email:
-                            <input type="email" name="email" />
-                        </label>
-                        <label>
-                            Your message:
-                            <textarea name="message"></textarea>
-                        </label>
-                        <button type="submit">Send</button>
-                    </form>
+
+                <div className="row align-items-center min-vh-100" id="contact">
+                    <Contact />
                 </div>
             </div>
         </div>

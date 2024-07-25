@@ -24,3 +24,24 @@ code {
   font-weight: normal;
 }
 
+@font-face {
+  font-family: "UbuntuSans-Regular";
+  src: local("UbuntuSans-Regular"),
+  url("./fonts/UbuntuSans/UbuntuSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "UbuntuSans-Medium";
+  src: local("UbuntuSans-Medium"),
+  url("./fonts/UbuntuSans/UbuntuSans-Medium.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "UbuntuSans-SemiBold";
+  src: local("UbuntuSans-SemiBold"),
+  url("./fonts/UbuntuSans/UbuntuSans-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+}
+

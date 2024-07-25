@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './fonts/PlaywriteUSAModern/PlaywriteUSModern-Regular.ttf'
+import './fonts/UbuntuSans/UbuntuSans-Regular.ttf'
+import './fonts/UbuntuSans/UbuntuSans-Medium.ttf'
+import './fonts/UbuntuSans/UbuntuSans-SemiBold.ttf'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
