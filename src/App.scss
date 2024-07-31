@@ -2,8 +2,17 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
+$font-size-base: 1rem;
+
+$h1-font-size: $font-size-base * 6;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
 $font-sizes: (
-  1: 6rem,
+  1: $h1-font-size,
   2: $h2-font-size,
   3: $h3-font-size,
   4: $h4-font-size,
@@ -12,47 +21,139 @@ $font-sizes: (
 );
 
 $theme-colors: (
-  "primary":    #EA57E5,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
+  "primary": #EA57E5,
+  "secondary": #FEF3FD,
+  "tertiary": $white,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+);
+
+$theme-colors-dark: (
+  "body-bg": #212529,
+  "body-color": #f8f9fa,
+  "primary": #8F128B,
+  "secondary": #735C71,
+  "tertiary": #4B3C49,
+  "success": #198754,
+  "info": #0dcaf0,
+  "warning": #ffc107,
+  "danger": #dc3545,
 );
 
 
-@import "~bootstrap/scss/bootstrap";
+[data-bs-theme="dark"] {
+  @each $color, $value in $theme-colors-dark {
+    --#{$color}: #{$value};
+  }
 
-.font-face-title{
-    font-family: "PlayWriteUSAModern";
+  .bg-primary {
+    background-color: var(--primary) !important;
+  }
+
+  .bg-secondary {
+    background-color: var(--secondary) !important;
+  }
+
+  .bg-tertiary {
+    background-color: var(--tertiary) !important;
+  }
+
+  .btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: $white;
+  }
+
+  .btn-tertiary {
+    background-color: var(--tertiary) !important;
+    border-color: var(--tertiary) !important;
+    color: $white;
+  }
+
+  .btn-tertiary:hover {
+    background-color: shift-color(#AB96AA, 40%);
+  }
+
+  .border-primary {
+    border-color: var(--primary) !important;
+  }
+
+  .svg-name {
+    stroke: white;
+    fill: "none";
+    stroke-linecap: "round";
+    stroke-linejoin: "round";
+  }
 }
 
-.font-face-content-regular{
+$theme-colors-text: (
+  "primary": $primary-text-emphasis,
+  "secondary": $secondary-text-emphasis,
+  "success": $success-text-emphasis,
+  "info": $info-text-emphasis,
+  "warning": $warning-text-emphasis,
+  "danger": $danger-text-emphasis,
+  "light": $light-text-emphasis,
+  "dark": $dark-text-emphasis,
+);
+
+$position-values: (
+  0: 0,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+);
+
+@import "~bootstrap/scss/bootstrap";
+
+.font-face-title {
+  font-family: "PlayWriteUSAModern";
+}
+
+.font-face-content-regular {
   font-family: "UbuntuSans-Regular";
 }
 
-.font-face-content-medium{
+.font-face-content-medium {
   font-family: "UbuntuSans-Medium";
 }
 
-.font-face-content-semibold{
+.font-face-content-semibold {
   font-family: "UbuntuSans-SemiBold";
   text-align: center;
 }
 
-.background-home{
+.background-home {
   background-image: url("./assets/drawing.svg");
   background-repeat: repeat-y;
   background-size: auto;
 }
 
-.background-home-dark{
+.background-home-dark {
   background-image: url("./assets/bg-dark.svg");
 }
 
+.svg-name {
+  stroke: black;
+  fill: none;
+  stroke-linecap:round;
+  stroke-linejoin: round;
+}
 
+.btn-tertiary:hover {
+  background-color: shift-color($white, 40%);
+}
 
-
-  
+.title-decoration {
+  border: none;
+  background-color: #EA57E5;
+  height: 10px;
+  width: 50px;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
