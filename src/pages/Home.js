@@ -143,6 +143,11 @@ const Home = () => {
         }
     }
 
+    const openExternalLink = (url) => {
+        window.open(url, '_blank');
+        console.log("external link clicked");
+    }
+
     useEffect(() => {
         console.log(" use effect ran");
         if (localStorage.getItem("theme") != null) {
@@ -269,18 +274,18 @@ const Home = () => {
                             <ul className="btn-group-vertical my-1 p-0">
                                 <li className="list-group-item p-0">
                                     <a>
-                                        <i className="bi bi-github btn btn-tertiary rounded-5" style={{ fontSize: "2rem" }} role="button" />
+                                        <i className="bi bi-github btn btn-tertiary rounded-5" style={{ fontSize: "2rem" }} role="button" onClick={() => openExternalLink("https://github.com/RavinduMalshika/")} />
                                     </a>
                                 </li>
 
                                 <li className="list-group-item p-0">
                                     <a>
-                                        <i className="bi bi-linkedin btn btn-tertiary rounded-5" style={{ fontSize: "2rem" }} role="button" />
+                                        <i className="bi bi-linkedin btn btn-tertiary rounded-5" style={{ fontSize: "2rem" }} role="button" onClick={() => openExternalLink("https://www.linkedin.com/in/ravindumalshika/")}/>
                                     </a>
                                 </li>
                                 <li className="list-group-item p-0">
                                     <a>
-                                        <i className="bi bi-twitter-x btn btn-tertiary rounded-5" style={{ fontSize: "2rem" }} role="button" />
+                                        <i className="bi bi-twitter-x btn btn-tertiary rounded-5" style={{ fontSize: "2rem" }} role="button" onClick={() => openExternalLink("https://x.com/PRM_Fernando")} />
                                     </a>
                                 </li>
                             </ul>
@@ -444,8 +449,8 @@ const Home = () => {
             </div>
 
             <div className="footer row bg-black text-white pt-5 pb-2">
-                <div className="col-2" />
-                <div className="col-8">
+                <div className="col-lg-2 col-md-1 col-0" />
+                <div className="col-lg-8 col-md-10 col-12">
                     <div className="row">
                         <div className="col-10">
                             <p><b>Ravindu Malshika Fernando</b></p>
@@ -454,16 +459,16 @@ const Home = () => {
                         <div className="col-2">
                             <b>Social</b>
                             <div className="d-flex mt-2">
-                                <i className="bi bi-github me-3" />
-                                <i className="bi bi-linkedin me-3" />
-                                <i className="bi bi-twitter-x me-3" />
+                                <i className="bi bi-github me-3" role="button" onClick={() => openExternalLink("https://github.com/RavinduMalshika/")} />
+                                <i className="bi bi-linkedin me-3" role="button" onClick={() => openExternalLink("https://www.linkedin.com/in/ravindumalshika/")} />
+                                <i className="bi bi-twitter-x me-3" role="button" onClick={() => openExternalLink("https://x.com/PRM_Fernando")} />
                             </div>
                         </div>
                     </div>
                     <hr />
                     <p className="text-center">Made by <a>Ravindu Malshika</a></p>
                 </div>
-                <div className="col-2" />
+                <div className="col-lg-2 col-md-1 col-0" />
             </div>
         </div>
     )
