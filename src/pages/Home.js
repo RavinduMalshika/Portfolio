@@ -238,8 +238,8 @@ const Home = () => {
                             <li className="nav-item">
                                 <a className="nav-link">Resume</a>
                             </li>
-                            <div className="vr d-none d-md-block"></div>
-                            <hr className="d-block d-md-none" />
+                            <div className="vr d-none d-lg-block"></div>
+                            <hr className="d-block d-lg-none" />
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {selectedTheme == "light" && <i className="bi bi-brightness-high"></i>}
