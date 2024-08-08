@@ -7,6 +7,12 @@ import portfolioDesktopDark from "../assets/portfolio-desktop-dark.png";
 import portfolioDesktopLight from "../assets/portfolio-desktop-light.png";
 import portfolioMobileDark from "../assets/portfolio-mobile-dark.png";
 import portfolioMobileLight from "../assets/portfolio-mobile-light.png";
+import gamehubDesktopLight from "../assets/gamehub-desktop-light.png";
+import gamehubDesktopDark from "../assets/gamehub-desktop-light.png";
+import justTunerDesktopDark from "../assets/just-tuner-desktop-dark.png";
+import justTunerDesktopLight from "../assets/just-tuner-desktop-light.png";
+import justTunerMobileDark from "../assets/just-tuner-mobile-dark.png";
+import justTunerMobileLight from "../assets/just-tuner-mobile-light.png";
 import htmlLogo from "../assets/html5.svg";
 import cssLogo from "../assets/css.svg";
 import jsLogo from "../assets/javascript.svg";
@@ -15,6 +21,10 @@ import reactLogo from "../assets/react.svg";
 import bootstrapLogo from "../assets/bootstrap.svg";
 import motionLogo from "../assets/framer-motion.svg";
 import githubLogo from "../assets/github.svg";
+import angularLogo from "../assets/angular.svg";
+import typescriptLogo from "../assets/typescript.svg";
+import androidStudioLogo from "../assets/android-studio.svg";
+import kotlinLogo from "../assets/kotlin.svg";
 
 const Home = () => {
     const [selectedTheme, setSelectedTheme] = useState(null);
@@ -166,23 +176,19 @@ const Home = () => {
 
         if (titleRRef.current) {
             const { top, right, bottom, left, width, height } = titleRRef.current.getBoundingClientRect();
-            console.log('R position and size:', { top, right, bottom, left, width, height });
-            console.log("vertical center: " + verticalCenter)
-            console.log("center point of R: " + (top + (height / 2)));
             setFirstNameCenter(top + (height / 2));
 
         }
 
         if (titleMRef.current) {
             const { top, right, bottom, left, width, height } = titleMRef.current.getBoundingClientRect();
-            console.log('M position and size:', { top, right, bottom, left, width, height });
             setLastNameCenter(top + (height / 2));
         }
 
     }, [])
 
     useEffect(() => {
-        if (isFirstRender == true) {
+        if (isFirstRender === true) {
             isFirstRender = false;
             return;
         }
@@ -242,9 +248,9 @@ const Home = () => {
                             <hr className="d-block d-lg-none" />
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {selectedTheme == "light" && <i className="bi bi-brightness-high"></i>}
-                                    {selectedTheme == "dark" && <i className="bi bi-moon-fill"></i>}
-                                    {selectedTheme == "auto" && <i className="bi bi-circle-half"></i>}
+                                    {selectedTheme === "light" && <i className="bi bi-brightness-high"></i>}
+                                    {selectedTheme === "dark" && <i className="bi bi-moon-fill"></i>}
+                                    {selectedTheme === "auto" && <i className="bi bi-circle-half"></i>}
                                 </a>
                                 <ul className="dropdown-menu dropdown-menu-end themes">
                                     <li id="light"><a className="dropdown-item theme-selection" onClick={() => themeChanged("light")}>
@@ -429,13 +435,32 @@ const Home = () => {
                         <Project
                             name="Game Hub"
                             description="Welcome to GameHub, a dynamic and interactive gaming platform built with Angular. Designed with a focus on responsive design, GameHub ensures a seamless and enjoyable experience across all devices. Our current offering, Tic Tac Toe, comes alive with smooth animations, making every move delightful and engaging."
-                            tools={[]}
+                            tools={[
+                                ["HTML", htmlLogo],
+                                ["CSS", cssLogo],
+                                ["Typescript", typescriptLogo],
+                                ["Angular", angularLogo],
+                                ["Github", githubLogo]
+                            ]}
+                            websiteLink=""
+                            githubLink="https://github.com/RavinduMalshika/GameHub"
+                            desktopDark={gamehubDesktopDark}
+                            desktopLight={gamehubDesktopLight}
                         />
 
                         <Project
                             name="Just Tuner"
                             description="Introducing Just Tuner, the ultimate online radio app built with Kotlin Jetpack Compose. With Just Tuner, you can connect to any radio station around the globe, bringing the world of music, news, and entertainment to your fingertips. Experience a sleek and modern interface designed for effortless navigation and enjoy seamless streaming from your favorite stations worldwide. Tune in, discover new sounds, and stay connected with Just Tuner!"
-                            tools={[]}
+                            tools={[
+                                ["Android Studio", androidStudioLogo],
+                                ["Kotlin", kotlinLogo]
+                            ]}
+                            websiteLink=""
+                            githubLink=""
+                            desktopDark={justTunerDesktopDark}
+                            desktopLight={justTunerDesktopLight}
+                            mobileDark={justTunerMobileDark}
+                            mobileLight={justTunerMobileLight}
                         />
                     </div>
                 </motion.div>

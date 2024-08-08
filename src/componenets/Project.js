@@ -55,7 +55,7 @@ const Project = ({ name, description, tools, websiteLink, githubLink, desktopDar
                     <div className="row m-0 p-0 mt-1">
                         <div className="d-flex flex-wrap col-12 col-md-6 justify-content-start">
                             {tools.map((tool, index) => (
-                                <div key={index} className="bg-tertiary border border-primary bg-white rounded-5 p-2 m-1">
+                                <div key={index} className="bg-tertiary border border-primary bg-white rounded-5 p-2 mx-1 mt-1 mb-auto">
                                     <img src={tool[1]} alt="${tool[0]} logo" width={window.innerWidth <= 768 ? 24 : 40} />
                                     <b className=" m-1 ms-2">{tool[0]}</b>
                                 </div>
