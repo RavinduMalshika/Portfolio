@@ -242,7 +242,7 @@ const Home = () => {
                                 <a className="nav-link" href="#contact">Contact</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link">Resume</a>
+                                <a className="nav-link" role="button" onClick={() => openExternalLink("https://drive.google.com/file/d/1n8OAasVCihaVWDLQ4IWJLjH-YJBPNGVC/view?usp=drive_link")}>Resume</a>
                             </li>
                             <div className="vr d-none d-lg-block"></div>
                             <hr className="d-block d-lg-none" />
