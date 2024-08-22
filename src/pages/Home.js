@@ -3,12 +3,15 @@ import { motion } from "framer-motion";
 import About from "../componenets/About";
 import Project from "../componenets/Project";
 import Contact from "../componenets/Contact";
+import logo from "../assets/logo.svg";
 import portfolioDesktopDark from "../assets/portfolio-desktop-dark.png";
 import portfolioDesktopLight from "../assets/portfolio-desktop-light.png";
 import portfolioMobileDark from "../assets/portfolio-mobile-dark.png";
 import portfolioMobileLight from "../assets/portfolio-mobile-light.png";
-import gamehubDesktopLight from "../assets/gamehub-desktop-light.png";
-import gamehubDesktopDark from "../assets/gamehub-desktop-light.png";
+import gameHubDesktopLight from "../assets/game-hub-desktop-light.png";
+import gameHubDesktopDark from "../assets/game-hub-desktop-light.png";
+import gameHubMobileDark from "../assets/game-hub-mobile-dark.png";
+import gameHubMobileLight from "../assets/game-hub-mobile-light.png";
 import justTunerDesktopDark from "../assets/just-tuner-desktop-dark.png";
 import justTunerDesktopLight from "../assets/just-tuner-desktop-light.png";
 import justTunerMobileDark from "../assets/just-tuner-mobile-dark.png";
@@ -223,7 +226,7 @@ const Home = () => {
                 initial="initial"
                 animate="final">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#home">Ravindu Malshika</a>
+                    <a className="navbar-brand" href="#home"><img src={logo} width="30" className="me-1"/>Ravindu Malshika</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -442,10 +445,12 @@ const Home = () => {
                                 ["Angular", angularLogo],
                                 ["Github", githubLogo]
                             ]}
-                            websiteLink=""
+                            websiteLink="https://ravindumalshika.github.io/GameHub/"
                             githubLink="https://github.com/RavinduMalshika/GameHub"
-                            desktopDark={gamehubDesktopDark}
-                            desktopLight={gamehubDesktopLight}
+                            desktopDark={gameHubDesktopDark}
+                            desktopLight={gameHubDesktopLight}
+                            mobileDark={gameHubMobileDark}
+                            mobileLight={gameHubMobileLight}
                         />
 
                         <Project
