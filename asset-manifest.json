@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.9eb7a2ed.css",
-    "main.js": "/static/js/main.644de43c.js",
+    "main.js": "/static/js/main.11f0f8d8.js",
     "static/js/453.1407b060.chunk.js": "/static/js/453.1407b060.chunk.js",
     "static/media/just-tuner-desktop-dark.png": "/static/media/just-tuner-desktop-dark.673c6d8a8bff4f7e808d.png",
     "static/media/just-tuner-desktop-light.png": "/static/media/just-tuner-desktop-light.a5ca93f4d9b1a84492a5.png",
@@ -13,6 +13,7 @@
     "static/media/PlaywriteUSModern-Regular.ttf": "/static/media/PlaywriteUSModern-Regular.141b9b92a826f944a2a6.ttf",
     "static/media/just-tuner-mobile-dark.png": "/static/media/just-tuner-mobile-dark.e0c4edccdb427d2471df.png",
     "static/media/just-tuner-mobile-light.png": "/static/media/just-tuner-mobile-light.0901a390b94874094345.png",
+    "static/media/game-hub-desktop-dark.png": "/static/media/game-hub-desktop-dark.30d08b0ce3ae4b713e9e.png",
     "static/media/game-hub-desktop-light.png": "/static/media/game-hub-desktop-light.05b73ed4b1da7f1d67bf.png",
     "static/media/portfolio-mobile-light.png": "/static/media/portfolio-mobile-light.eb15015402d77fa1bf4e.png",
     "static/media/portfolio-mobile-dark.png": "/static/media/portfolio-mobile-dark.63eea31f86b19294381a.png",
@@ -35,11 +36,11 @@
     "static/media/html5.svg": "/static/media/html5.c1bb84e022ca9d76984d4b943bd678fd.svg",
     "static/media/framer-motion.svg": "/static/media/framer-motion.d2e7bc1f593241ad822918f8bdb736e8.svg",
     "main.9eb7a2ed.css.map": "/static/css/main.9eb7a2ed.css.map",
-    "main.644de43c.js.map": "/static/js/main.644de43c.js.map",
+    "main.11f0f8d8.js.map": "/static/js/main.11f0f8d8.js.map",
     "453.1407b060.chunk.js.map": "/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9eb7a2ed.css",
-    "static/js/main.644de43c.js"
+    "static/js/main.11f0f8d8.js"
   ]
 }
