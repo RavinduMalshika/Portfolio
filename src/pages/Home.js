@@ -9,7 +9,7 @@ import portfolioDesktopLight from "../assets/portfolio-desktop-light.png";
 import portfolioMobileDark from "../assets/portfolio-mobile-dark.png";
 import portfolioMobileLight from "../assets/portfolio-mobile-light.png";
 import gameHubDesktopLight from "../assets/game-hub-desktop-light.png";
-import gameHubDesktopDark from "../assets/game-hub-desktop-light.png";
+import gameHubDesktopDark from "../assets/game-hub-desktop-dark.png";
 import gameHubMobileDark from "../assets/game-hub-mobile-dark.png";
 import gameHubMobileLight from "../assets/game-hub-mobile-light.png";
 import justTunerDesktopDark from "../assets/just-tuner-desktop-dark.png";
@@ -30,7 +30,7 @@ import androidStudioLogo from "../assets/android-studio.svg";
 import kotlinLogo from "../assets/kotlin.svg";
 
 const Home = () => {
-    const [selectedTheme, setSelectedTheme] = useState(null);
+    const [selectedTheme, setSelectedTheme] = useState("light");
     const [firstNameCenter, setFirstNameCenter] = useState(0);
     const [lastNameCenter, setLastNameCenter] = useState(0);
 
@@ -162,15 +162,11 @@ const Home = () => {
     }
 
     useEffect(() => {
-        console.log(" use effect ran");
         if (localStorage.getItem("theme") != null) {
             setSelectedTheme(localStorage.getItem("theme"));
         }
 
-        console.log(localStorage.getItem("theme"));
-
         let themeSelections = document.getElementsByClassName("themes")[0].childNodes;
-        console.log(themeSelections);
         themeSelections.forEach(themeSelection => {
             themeSelection.addEventListener("click", function () {
                 setSelectedTheme(themeSelection.id);
@@ -196,13 +192,11 @@ const Home = () => {
             return;
         }
         themeChanged();
-        console.log("theme select ran");
     }, [selectedTheme]);
 
     const themeChanged = () => {
         let theme = selectedTheme;
         localStorage.setItem("theme", selectedTheme);
-        console.log(localStorage.getItem("theme"))
 
         switch (theme) {
             case "light": {
